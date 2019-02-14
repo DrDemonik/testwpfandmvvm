@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs
+/WpfAppTaskTest/.vs/WpfAppTask1/v15
+/WpfAppTaskTest/packages
+/WpfAppTaskTest/WpfAppTask1/bin/Debug
+/WpfAppTaskTest/WpfAppTask1/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/WpfAppTaskTest/WpfAppTask1/obj/Debug
+/WpfAppTaskTest/WpfAppTask2/bin/Debug
+/WpfAppTaskTest/WpfAppTask2/obj
