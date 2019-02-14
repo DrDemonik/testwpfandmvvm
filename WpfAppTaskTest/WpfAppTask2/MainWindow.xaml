@@ -7,22 +7,21 @@
         mc:Ignorable="d"
         Title="Гулигули" Height="426.114" Width="640.446" Background="#FFFBD6D6" Loaded="Window_Loaded">
     <Window.Resources>
-        <CollectionViewSource 
-            x:Key="tableForWPFappViewSource" d:DesignSource="{d:DesignInstance {x:Type local:tableForWPFapp}, CreateList=True}"
-            
-            />
         <!--<CollectionViewSource 
             x:Key="tableForWPFappViewSource" d:DesignSource="{d:DesignInstance {x:Type local:tableForWPFapp}, CreateList=True}"
             
             /> -->
     </Window.Resources>
-    <Grid DataContext="{StaticResource tableForWPFappViewSource}">
+    <Window.DataContext>
+        <local:MyViewModel/>
+    </Window.DataContext>
+    <Grid DataContext="{Binding Mode=OneWay}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="466*"/>
             <ColumnDefinition Width="183*"/>
         </Grid.ColumnDefinitions>
         <Button Content="Save" HorizontalAlignment="Left" Height="36" Margin="200,332,0,0" VerticalAlignment="Top" Width="197" Click="Button_Click"/>
-        <DataGrid x:Name="tableForWPFappDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="28,22,28,111" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2" Background="#FFFFF5E2">
+        <DataGrid x:Name="tableForWPFappDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding ViewSource}" Margin="28,22,28,111" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2" Background="#FFFFF5E2">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn x:Name="flagColumn" Binding="{Binding flag,Mode=TwoWay}" Header="flag" Width="Auto"/>
                 <DataGridTextColumn x:Name="idkeyColumn" Binding="{Binding idkey,Mode=TwoWay}" Header="idkey" Width="Auto"/>

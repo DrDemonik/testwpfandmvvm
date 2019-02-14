@@ -14,22 +14,29 @@ namespace WpfAppTask2
 {
     class MyViewModel
     {
-        TestDB3Entities context = new TestDB3Entities();
+        TestDB3Entities2 context = new TestDB3Entities2();
 
-        private System.Windows.Data.CollectionViewSource _viewSource;
-        public System.Windows.Data.CollectionViewSource ViewSource
+        private ObservableCollection<tableForWPFapp> _viewSource { get; set; }
+        public ObservableCollection<tableForWPFapp> ViewSource
         {
             get
             {
                 return _viewSource;
             }
             set
-            {
+            {                
                 context.tableForWPFapp.Load();
-                _viewSource.Source = context.tableForWPFapp.Local;
+                _viewSource = context.tableForWPFapp.Local;
             }
         }
 
+        public MyViewModel()
+        {
+            
+            //_viewSource = new System.Windows.Data.CollectionViewSource();
+            _viewSource = new ObservableCollection<tableForWPFapp>();
+            ViewSource = ViewSource;
+        }
 
     }
 
